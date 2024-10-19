@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fayshing Hardware</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover; /* Cover the entire area */
+            background-repeat: no-repeat; 
+            background-position: center top;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%; /* Ensure the container uses full width */
+            position: relative; /* Enable positioning of child elements */
+            overflow: hidden; /* Prevent overflow of elements */
+        }
+
+        .background-image {
+            position: absolute; /* Position the background */
+            top: 0; 
+            left: 0;
+            width: 100%; /* Full width */
+            height: 50%; /* Fixed to half screen height */
+            z-index: -1; /* Place it behind the login box */
+            background-image: url('images/bg.png'); /* Ensure background image */
+            background-size: cover; /* Cover the background */
+            background-position: center; /* Center the image */
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 30px 100px; /* Top/Bottom padding of 30px and Left/Right of 100px */
+            border-radius: 20px;
+            border: 3px solid #ff914d;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 550px;
+            margin-top: 50px; /* Adjust this value as needed */
+            position: relative; /* Ensure it stays above background */
+            z-index: 1; /* Place it above the background */
+        }
+
+        .logo {
+            width: 280px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 50px;
+            margin-top: 15px;
+            border: 2px solid #ff914d;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder {
+            color: #ebab83;
+        }
+
+        .login-btn {
+            background-color: #ff914d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 25vh;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #e2600f;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #d86925; /* Updated color for consistency */
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .register-text {
+            margin-top: 15px;
+            font-weight: normal;
+        }
+
+       
+        @media (max-width: 768px) {
+            .login-box {
+                padding: 30px 20px; 
+                width: 90%;
+                margin-top: 20px;
+            }
+
+            .login-btn {
+                width: 80%; 
+            }
+
+            .logo {
+                width: 70%; 
+                max-width: 200px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 20px; 
+                width: 95%; 
+                margin-top: 20px;
+            }
+
+            .logo {
+                width: 70%; 
+                max-width: 150px; 
+            }
+
+            input[type="email"],
+            input[type="password"] {
+                margin-bottom: 30px; 
+                padding: 8px; 
+            }
+
+            .login-btn {
+                width: 100%; 
+                padding: 10px; 
+            }
+
+            .register-text,
+            .link {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="background-image"></div> 
+        <div class="login-box">
+            <img src="images/logo_orange.png" alt="Fayshing Hardware Logo" class="logo">
+
+            <form action="/login" method="post">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Admin Email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                
+                <button type="submit" class="login-btn">LOG IN</button>
+            </form>
+            
+            <p class="register-text">Don't have an account? <a href="/register" class="link">Register</a></p>
+            <p><a href="/forgotpassword" class="link">Forgot Password?</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+const AuthController = {
+    login: (req, res) => {
+        res.render('login'); 
+    },
+    
+    register: (req, res) => {
+        res.render('register');
+    },
+    
+    loginUser: (req, res) => {
+        const { email, password } = req.body;
+        if (email === 'admin@example.com' && password === 'password') {
+            res.redirect('/home');
+        } else {
+            res.render('login', { error: 'Invalid email or password' });
+        }
+    },
+    
+    registerUser: (req, res) => {
+        const { name, email, password } = req.body;
+        res.redirect('/login');
+    },
+    
+    home: (req, res) => {
+        res.render('home'); 
+    },
+    
+    forgotpassword: (req, res) => {
+        res.render('forgotpassword'); 
+    },
+    
+    handleForgotPassword: (req, res) => {
+        const { email } = req.body;
+        res.redirect('/newpassword');
+    },
+    
+    newpassword: (req, res) => {
+        res.render('newpassword'); 
+    },
+    
+    handleNewPassword: (req, res) => {
+        const { password, confirmed_password } = req.body;
+        if (password === confirmed_password) {
+            res.redirect('/login');
+        } else {
+            res.redirect('/newpassword'); 
+        }
+    },
+};
+
+module.exports = AuthController;
